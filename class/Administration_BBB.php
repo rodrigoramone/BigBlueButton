@@ -25,19 +25,19 @@ class Administration_BBB extends Bigbluebutton {
 	public function createMeeting($params, $file = null){
 		
 		$this->file = $file;
-        $this->url = http_build_query($params);
-        $this->sum = sha1('create' . $this->url . $this->salt);
-        $this->url = $this->server . self::$create_meeting . $this->url . '&checksum=' . $this->sum;
+        	$this->url = http_build_query($params);
+        	$this->sum = sha1('create' . $this->url . $this->salt);
+        	$this->url = $this->server . self::$create_meeting . $this->url . '&checksum=' . $this->sum;
         
-        if(!empty($this->file)){
+       		if(!empty($this->file)){
 
-        	return self::postURL( $this->url, $this->file );
+        		return self::postURL( $this->url, $this->file );
         
-        } else {
+       		} else {
 
-        	return parent::response( $this->url );
+        		return parent::response( $this->url );
         
-        }
+        	}
 		
 	}
 	
@@ -45,8 +45,9 @@ class Administration_BBB extends Bigbluebutton {
 	public function joinMeeting($params){
 	
 		$this->construct = http_build_query($params);
-        $this->sum = sha1('join' . $this->construct . $this->salt);
-        return $this->url = $this->server . self::$join_meeting . $this->construct . '&checksum=' . $this->sum;
+        	$this->sum = sha1('join' . $this->construct . $this->salt);
+        	
+        	return $this->url = $this->server . self::$join_meeting . $this->construct . '&checksum=' . $this->sum;
 				
 	}
 	
@@ -82,14 +83,14 @@ class Administration_BBB extends Bigbluebutton {
 		
 		
 		$this->context = array(
-						'http' => array(
-							"method"  => "POST",
-							"header"  => "Content-type: text/xml"  . "\r\n". 
-										 "Content-Language: en-US" . "\r\n" . 
-										 "Content-Length: " . strlen($xml) . "\r\n",
-								         "content" => $xml . "\r\n\r\n"	
-					    			)
-						);
+				      'http' => array(
+				      		      "method"  => "POST",
+						      "header"  => "Content-type: text/xml"  . "\r\n". 
+						                   "Content-Language: en-US" . "\r\n" . 
+								   "Content-Length: " . strlen($xml) . "\r\n",
+								   "content" => $xml . "\r\n\r\n"	
+					    	     )
+				      );
 	
 	   	return file_get_contents($this->construct, false, stream_context_create($this->context));
 	
