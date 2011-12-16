@@ -19,9 +19,9 @@ $logoutURL       = "http://bigbluebutton.org";
 $maxParticipants = "10";
 $voiceBridge     = "70001";
 $file = array(
-				"http://www.apricot.net/apricot2006/slides/tutorial/tuesday/Jonny_Martin-Asterisk.pdf",
-				"http://samplepdf.com/sample.pdf"
-				);
+		"http://www.apricot.net/apricot2006/slides/tutorial/tuesday/Jonny_Martin-Asterisk.pdf",
+		"http://samplepdf.com/sample.pdf"
+	     );
 $record          = "true";
 $duration        = 0;
 
@@ -31,17 +31,17 @@ $duration        = 0;
 		
 		$app = new Administration_BBB($server, $salt, $tipo);
 		$params = array(
-						'name'           => $name,
-        				'meetingID'      => $meetingID,
-        				'attendeePW'     => $attendeePW,
-        				'moderatorPW'    => $moderatorPW,
-        				'welcome'        => $welcome,
-        				'logoutURL'      => $logoutURL,
-        				'maxParticipants'=> $maxParticipants,
-       					'voiceBridge'    => $voiceBridge,
-						'duration'       => $duration,
-						'record'         => $record
-						);
+				'name'           => $name,
+        			'meetingID'      => $meetingID,
+        			'attendeePW'     => $attendeePW,
+        			'moderatorPW'    => $moderatorPW,
+        			'welcome'        => $welcome,
+        			'logoutURL'      => $logoutURL,
+        			'maxParticipants'=> $maxParticipants,
+       				'voiceBridge'    => $voiceBridge,
+				'duration'       => $duration,
+				'record'         => $record
+				);
 		
 		print $app->createMeeting($params, $file);
 		
@@ -53,7 +53,7 @@ $duration        = 0;
         			'fullName'  => $name,
         			'meetingID' => $meetingID,
         			'password'  => $moderatorPW
-        		);
+        			);
         
 		print $app->joinMeeting($params);
 				
@@ -62,9 +62,9 @@ $duration        = 0;
 		print"<h3>Test endMeeting</h3>";
 		$app = new Administration_BBB($server, $salt, $tipo);
 		$params = array(
-							'meetingID' => $meetingID,
-							'password'  => $moderatorPW
-					  );
+				'meetingID' => $meetingID,
+				'password'  => $moderatorPW
+			        );
 		
 		print $app->endMeeting($params);
 		
