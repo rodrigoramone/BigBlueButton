@@ -11,16 +11,16 @@ abstract class Bigbluebutton {
 	/*
 	 * @var string -- the host to the bigbluebutton server
 	 */
-    protected $server;
+    	protected $server;
     
     
-    /*
-     * @var string -- the security salt to the bigbluebutton server 
-     */
-    protected $salt;
+    	/*
+     	* @var string -- the security salt to the bigbluebutton server 
+     	*/
+    	protected $salt;
     
     
-    public function __construct($server, $salt, $tipo = "url"){
+    	public function __construct($server, $salt, $tipo = "url"){
 
 		$this->server = $server;
 		$this->salt   = $salt;
@@ -28,7 +28,7 @@ abstract class Bigbluebutton {
 
 	}
 	
-	
+		
 	protected function response($url){
 		
 		if( $this->tipo == "xml" ){
